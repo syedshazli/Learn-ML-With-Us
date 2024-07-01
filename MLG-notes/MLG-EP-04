@@ -1,0 +1,25 @@
+Algorithm plus the pattern it learns is the model 
+
+Features are pieces of the house that contribute to prediction (# of houses, distance to Quentin,etc)
+
+Features are most important t part, algorithm looks at row, and learns coefficient to multiply
+
+Features are variables x,y,z
+
+Combination of rows and columns is matrix
+
+1. Infer/predict
+2. Error/loss function 
+3. Train/learn 
+
+Last column is the actual value, ML model adjusts coefficient based on prediction accordingly 
+
+Retrain model is online learning 
+
+Supervised learning, training on data: linear and logistic regression 
+Ex: price of house, cat or dog
+
+Unsupervised learning, machine clusters into a bin, ml algo funds what is in common
+
+Reinforcement learning: taking steps, give it a goal: system of reward and punishment 
+ML also figures out on its own the rules, actions, and brst strategy to achieve goal. It trains itself and is action oriented 
