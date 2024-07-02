@@ -4,4 +4,7 @@ Good first epidose that gives the structure.
 We discussed whether it's better to learn the math first or learn the math along the way. 
 We finalized that it's better to learn the math along the way
 
+Hasan thoughts:
+MLG 1 Tells listener about the layout of the MLG course discusses prerequisites such as programming languages and maths (calc, discrete math) for ML Using supplementary resources from OCDevel for further understanding 
+
 Mahveen thoughts:
