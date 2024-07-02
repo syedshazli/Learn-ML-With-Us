@@ -97,3 +97,64 @@ MLG 3 - this episode talks about innovation and how AI is changing the world
 -Dualism is the soul is different from the brain
 
 # MLG Episode 4:
+***Abdu notes***:
+
+Algorithm plus the pattern it learns is the model 
+
+Features are pieces of the house that contribute to prediction (# of houses, distance to Quentin,etc)
+
+Features are most important t part, algorithm looks at row, and learns coefficient to multiply
+
+Features are variables x,y,z
+
+Combination of rows and columns is matrix
+
+1. Infer/predict
+2. Error/loss function 
+3. Train/learn 
+
+Last column is the actual value, ML model adjusts coefficient based on prediction accordingly 
+
+Retrain model is online learning 
+
+Supervised learning, training on data: linear and logistic regression 
+Ex: price of house, cat or dog
+
+Unsupervised learning, machine clusters into a bin, ml algo funds what is in common
+
+Reinforcement learning: taking steps, give it a goal: system of reward and punishment 
+ML also figures out on its own the rules, actions, and brst strategy to achieve goal. It trains itself and is action oriented 
+
+***Hasan Notes***:
+ ---- ML broken down into 3 steps ---- 
+Infer or predict Error or loss Train or learn Process of ML from price of house example {who,what, when, where , why , how}? 
+Use a spreadsheet, upload to algorithms ( ex. linear regression) algorithm trains its model until it gets a sense to determine house price 
+With that trained model, predict price of other houses 
+  New examples train the algorithm ----> retraining model (online learning)
+
+Algorithm is a piece of software written in a language (python, TensorFlow)
+The algorithm runs over the rows of data in a spreadsheet and saves it 
+The algorithm plus the pattern it has learned is the model 
+Spreadsheet are rows (instances) and columns (features) 
+
+Features can be alot of different things, numbers, true /false, yes/no
+  - does ML always require spreadsheets? 
+    Abdu thoughts: I would say yes because Machine Learning works on data and data sets. The machine won't know the right or wrong answer without being fed data
+
+The algorithm determines what coefficient to put into what feature ---> learns what number to multiply the features also known as a weight
+
+Features are the x,y,z (lin alg) takes bunch of equations and stack them together and solve for all of them 
+
+Rows and columns are the matrix, averages them all and makes a prediction
+Last column equals the actual price ML takes it row by row and make a prediction, show error (vector), then update (training) 
+
+Supervised learning is trained on data, from a person (ex. linear/logistic regression) 
+Unsupervised learning is the machine takes examples and throw it away (tossing) 
+
+ML algorithm finds commonality and makes categories 
+
+Reinforcement learning is taking actions, with system of reward and punishment 
+given a goal, ML figures out the rules and which actions to take then best strategy to achieve goal 
+
+It looks for the best course of action (the floor is lava method) - I would like to visually see these spreadsheets and rows and features -
+Abdu- I agree, would like to see these spreadsheets carried out.
