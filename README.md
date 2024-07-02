@@ -74,3 +74,26 @@ ML is automated predictions made by models (TensorFlow, Pychart etc.) or taking 
    very interesting Thomas Baye’s reasoning and probability of events and how Baysian inference is fundamental to ML Neurons ----> perception ----> neural network
 
 # MLG Episode 3:
+Abdu notes:
+innovation has always served to help man and 
+make their lives easier, but when is it a problem for
+making our lives too easy?
+
+
+Hasan notes:
+MLG 3 - this episode talks about innovation and how AI is changing the world
+---- 4 philosophical talks about AI ----- 
+-Automation of the economy (medical, web design, cars, taxes etc.) 
+  *Creativity is not exempt from AI Fear ( ex. losing jobs) and excitement ( ex. self driving cars) both come out of the AI revolution 
+
+-The singularity term which means the point of no return
+
+-The notion of AGI is making our lives better is good, but making another AGI with a previous AGI (seed AI) is better because it evolves, but it reaches a singularity 
+
+-Conciousness might be “the last bastion of unsolved life riddles” - is the mind a machine? 
+
+-An AI is intelligence if it’s effective
+
+-Dualism is the soul is different from the brain
+
+# MLG Episode 4:
