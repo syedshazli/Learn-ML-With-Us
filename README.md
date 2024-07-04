@@ -158,3 +158,16 @@ given a goal, ML figures out the rules and which actions to take then best strat
 
 It looks for the best course of action (the floor is lava method) - I would like to visually see these spreadsheets and rows and features -
 Abdu- I agree, would like to see these spreadsheets carried out.
+
+# MLG Episode 3:
+***Hasan Notes***
+
+
+***Abdu notes***
+
+
+***Mahveen Notes***
+
+
+***Zahra***
+
