@@ -8,3 +8,6 @@ Hasan thoughts:
 MLG 1 Tells listener about the layout of the MLG course discusses prerequisites such as programming languages and maths (calc, discrete math) for ML Using supplementary resources from OCDevel for further understanding 
 
 Mahveen thoughts:
+- Covers shallow and deep learning models
+- Calculus, statistics, and linear algebra
+- Introduction felt structured, overall good overview
