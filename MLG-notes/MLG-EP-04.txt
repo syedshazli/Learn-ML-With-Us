@@ -59,3 +59,28 @@ given a goal, ML figures out the rules and which actions to take then best strat
 
 It looks for the best course of action (the floor is lava method) - I would like to visually see these spreadsheets and rows and features -
 Abdu- I agree, would like to see these spreadsheets carried out.
+
+Mahveen Notes:
+ML is broken intro 3 steps
+1. infer/predict
+2. error/loss function
+3. train/learn
+
+- In machine learning there are many algorithms designated to specific tasks (ie linear regression)
+- Algorithm is piece of software written in python and tensorflow
+- Algorithm trains its model until it has enough knowledge to make predictions
+- New data would re-train which is called online training
+
+- A model is the algorithm + pattern which its learned
+- Model has rows and columns called features (ie rows are houses and columns are features)
+- Spreadsheet is called a matrix
+* interestingly topics i learned and worked with within my business analytics class
+
+Three categories of algorithms 
+1. Supervised learning 
+   - train with bunch of information and data ie. linear regression
+2. Unsupervised learning
+   - ie. cluster analysis
+3. Reinforcement learning 
+   - give it a goal, give reinforcement → will figure out the rules of the game, what actions it should take, and the best strategy to achieve its goal
+
