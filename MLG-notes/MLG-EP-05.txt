@@ -1,5 +1,27 @@
 syed notes:
 top of ml: mathematical decision making
+Supervised learning is what were doijg in Linear regression (LR)
+SL broken down into classification and tegression 
+classified tells you class of something- cat dog or tree based kn pucture
+regressor gives a number. 
+
+LR is a regressor SL algo, Hello World of ML
+
+Guessing cost of house is LR
+
+predict, figure out wrror, training or fitting
+
+prediction: using a hypothesis function h(x)
+X is the example. (ex house)
+x1, x2, x3 are the fratures 
+body if hypothesis function is multiplying each feature by coetficent 
+
+ex: edtimate house cost with 800 sq fr, 1 bed 1 bath
+lesrn the coefficsnts, parameteers. what do we multiply the sq footage by + bedroom + bathrrom
+coefficnet is theta
+
+
+
 
 hasan notes:
 
