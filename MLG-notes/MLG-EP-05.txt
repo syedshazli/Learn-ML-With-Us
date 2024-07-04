@@ -21,6 +21,52 @@ lesrn the coefficsnts, parameteers. what do we multiply the sq footage by + bedr
 coefficnet is theta
 
 
+if using very few fewtures, output will be less correct
+for visualidation, lets pretend cost of house depends on sq footage
+h(x) = theta1 * x1
+
+make a prediction witb hypothesis function, import spreadhseet of houses in oregon and actual price
+every row is house, every column is fewture of house
+
+second column is actual cost of the house (label)
+
+X value is sq footage of each house( feature), Y value is actual cost
+
+will receive a scatter plot pointing up and right
+
+trying to learn hyp function that puts a line through the cebter of the the plot
+
+y = theta * X.  looks similar to y =mx + b, which is what were looking for
+
+But what is B in this situation? its the bias, fpr beginning kd y azis
+
+Biased parameter, is the average if you dont have any other info
+
+"Cost of house if we dont know anything is average cost of house in the area"
+
+h= theya 1 * x1 + theya0
+
+puts Y values on a sude of flash card, will make a guess based on the feature.
+makes a prediction for every house, doesnt mnow the result yet
+
+Cost/error step:
+
+Average of all mistakes. fistance between estiamtion and actual, sum up sq dufferences and divide by number examples
+(presiction-actual)^2/2m
+
+visualise cost function: move to a new tablw, with 3D graph.
+X axis may be theya0/1 y axis is theta 1. erorr is in the air
+Plugged in random guess in inital guess, assumed random calues so it can know how bad it did
+that is a value on the Z axis 
+
+move the error all the way down to 0. 
+
+gradient descent: first learning algorithm! uses calculus to take the deriv of cost function tikl we find whwre the erorr is minimized
+Thoughts: the derivative find the ROC, 
+derivativr of cost function w/respect to point
+steep slope means bad prediction, far from 0.
+stopped at 17:15
+
 
 
 hasan notes:
