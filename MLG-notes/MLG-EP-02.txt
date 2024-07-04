@@ -56,3 +56,26 @@ ML is automated predictions made by models (TensorFlow, Pychart etc.) or taking 
 
 - Rest of the episode talks about the history of AI,
    very interesting Thomas Baye’s reasoning and probability of events and how Baysian inference is fundamental to ML Neurons ----> perception ----> neural network
+
+Mahveen Notes:
+- DS –> AI –> ML
+AI Subdivisions
+- NLP: google translate, siri, chatbox
+- Knowledge representation: extractive and abstractive question answering
+- Reasoning and problem solving: probabilistic models to solve
+- Planning: taking actions in an environment, chess, av, video games, perception
+* Love how he breaks down AVs and touches base with robotics
+- Social intelligence: human emotions, robo therapists, baymax, sentiment analysis
+- Artificial General intelligence: usable in other domains (not happening yet)
+- If u cant tell something is ai, then it is intelligent
+
+ML: pattern recognition on data, stock trading
+- Affective at tackling subdivisions in AI, general
+
+DS: data ingestion → store big data → feature engineering (storing cleaned up data) → data analytics and business intelligence OR machine learning
+- Data analytics: store into data warehouse (transform recent data into column format) then goes to humans
+- Machine learning: automated predictions
+
+- Machine learning is an industry practice, AI is an academic endeavor
+* The history of artificial intelligence goes way more back than I thought
+
