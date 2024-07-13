@@ -3,14 +3,18 @@ import argparse
 
 # Step 1: Parse Command line arguments (there are 3 of them)
 parser = argparse.ArgumentParser(description='takes in file and outputs date of file, file size in MB, and name of file')
-parser.add_argument(sizeFile)
-parser.add_argument(dateFile)
-parser.add_argument(nameFile)
+
+#Input is the directory of the file
+parser.add_argument("directory", help = "The directory in which you want info regarding files") 
 
 args = parser.parse_args()
 
 # Step 2: Read Files from Directory: Use the os module to list files in a given directory.
-
+#input is directory
+def read_files(directory):
+  path = os.listdir(directory)
+  print("Files and directories in path", directory, ":")
+  print(path)
 
 # Step 3:	Get File Attributes: Retrieve file permissions, size, modification date, and name for each file.
 
