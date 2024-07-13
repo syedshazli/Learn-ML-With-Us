@@ -9,7 +9,7 @@ parser.add_argument(nameFile)
 
 args = parser.parse_args()
 
-# Step 2
+# Step 2:
 
 
 
