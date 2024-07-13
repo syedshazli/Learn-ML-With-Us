@@ -9,18 +9,13 @@ parser.add_argument(nameFile)
 
 args = parser.parse_args()
 
-# Step 2:
+# Step 2: Read Files from Directory: Use the os module to list files in a given directory.
 
 
+# Step 3:	Get File Attributes: Retrieve file permissions, size, modification date, and name for each file.
 
-# Step 3
+# Step 4:	Convert File Size: Convert the file size to megabytes (MB).
 
+# Step 5:		Write to CSV: Use the csv module to write the file attributes to a CSV file.
 
-# Step 4
-
-
-# Step 5
-
-
-
-# Step 6
+# Step 6:	Error Checking and Help Display: The argparse module automatically provides error checking and help display.
