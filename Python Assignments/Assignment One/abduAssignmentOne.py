@@ -38,6 +38,10 @@ def getFileAttributes(directory, path):
 
 def writeCSV():
   #use the 'w' for mode to write in a new csv file using the with open method
+   with open('file_attributes.csv', 'w', newline='') as csvfile:
+        csv_writer = csv.writer(csvfile)
+        csv_writer.writerow(["Permissions", "Size (MB)", "Modification Date", "File Name"])
+        csv_writer.writerows(file_attributes)
 
   
 # Step 6:	Error Checking and Help Display: The argparse module automatically provides error checking and help display.
