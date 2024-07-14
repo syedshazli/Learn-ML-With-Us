@@ -1,4 +1,4 @@
-import os
+ import os
 import argparse
 import stat 
 import time
@@ -20,6 +20,8 @@ def read_files(directory):
   print(path)
   return path
 
+
+
 # Step 3:	Get File Attributes: Retrieve file size, modification date, and name for each file.  
 def getFileAttributes(directory, path):
   name = []
@@ -34,7 +36,7 @@ def getFileAttributes(directory, path):
   
   
 
-# Step 5:	Write to CSV: Use the csv module to write the file attributes to a CSV file.
+# Step 4:	Write to CSV: Use the csv module to write the file attributes to a CSV file.
 
 def writeCSV():
   #use the 'w' for mode to write in a new csv file using the with open method
@@ -44,6 +46,8 @@ def writeCSV():
         csv_writer.writerows(file_attributes)
 
   
-# Step 6:	Error Checking and Help Display: The argparse module automatically provides error checking and help display.
-  
-# argeparse module already does this
+# For testing purposes
+
+#main function
+if __name__ == "__main__":
+  # let's test out by passing in a directory
