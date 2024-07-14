@@ -1,3 +1,5 @@
+# used stack overflow, Geeks for Geeks, and other similar sites for help with the code in linux.
+# Used chatgpt for steps on solving as well as pushing me in the right direction
 import os
 import argparse
 import stat 
