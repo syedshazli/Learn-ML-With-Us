@@ -23,13 +23,13 @@ def read_files(directory):
 # Step 3:	Get File Attributes: Retrieve file size, modification date, and name for each file.  
 def getFileAttributes(directory, path):
   name = []
-  #for files in path:
-    #name.append(files)
-  size_in_mb = stats.st_size / (1024 * 1024)
+  modDate = []
+  for files in path: #or files in directory?
+    name.append(os.path.basename(path)) # name of file
+    modDate.append(os.path.getmtime(path)) # modification date
+    size_in_mb = stats.st_size / (1024 * 1024)
   
-
-
-  return 
+  #print all file attributes
   
   
   
@@ -39,4 +39,7 @@ def getFileAttributes(directory, path):
 def writeCSV():
   #use the 'w' for mode to write in a new csv file using the with open method
 
+  
 # Step 6:	Error Checking and Help Display: The argparse module automatically provides error checking and help display.
+  
+# argeparse module already does this
