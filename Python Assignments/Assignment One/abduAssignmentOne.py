@@ -31,7 +31,7 @@ def getFileAttributes(directory, path):
     modDate.append(os.path.getmtime(path)) # modification date
     size_in_mb = stats.st_size / (1024 * 1024)
   
-  #print all file attributes
+  #print all file attributes, return type is ???
   
   
   
@@ -45,9 +45,15 @@ def writeCSV():
         csv_writer.writerow(["Permissions", "Size (MB)", "Modification Date", "File Name"])
         csv_writer.writerows(file_attributes)
 
+
   
-# For testing purposes
+# For testing purposes, write a main function
 
 #main function
 if __name__ == "__main__":
   # let's test out by passing in a directory
+  directory = args.directory
+  path = read_files(directory)
+  fileAttributes = getFileAttributes(directory, path)
+  
+  
