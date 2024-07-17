@@ -1,4 +1,4 @@
-Assignment. Write a python code that takes all of the files from a directory, write it into a csv format " all three permission in separate column, size of file converted in to MB , date of the file and name of the file.  Input will be the directory name. So that I can run it on any directory.  There should be error checking on the argument too , there should be a help display also if anyone wants to display how to execute a script.
+Assignment. Write a python script that takes all of the files from a directory, write it into a csv format " all three permission in separate column, size of file converted in to MB , date of the file and name of the file.  Input will be the directory name. So that I can run it on any directory.  There should be error checking on the argument too , there should be a help display also if anyone wants to display how to execute a script.
 
 ###
 our plan of action: And this is our plan of action: 	1	Parse Command-Line Arguments: Use the argparse module to handle input arguments, including error checking and a help display.
