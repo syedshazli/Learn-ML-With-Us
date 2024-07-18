@@ -20,19 +20,27 @@ def read_files(directory):
   path = os.listdir(directory) #use listdir method which appends the files in a directory to a list variable "path"
   print("Files and directories in path", directory, ":")
   print(path)
+
+  #path is just a array of our files 
   return path
 
 
 
 # Step 3:	Get File Attributes: Retrieve file size, modification date, and name for each file.  
 def getFileAttributes(directory, path):
+  #we don't do anything directory
   name = []
   modDate = []
+  size = []
   for files in path: #or files in directory?
-    name.append(os.path.basename(path)) # name of file
-    modDate.append(os.path.getmtime(path)) # modification date
-    size_in_mb = stats.st_size / (1024 * 1024)
+    name.append(os.path.basename(files)) # name of file
+    modDate.append(os.path.getmtime(files)) # modification date
+    size.append(stat.st_size / (1024 * 1024)) #stats was used before instead of stat
   
+  #can use a for loop for printing as well, this might make more sense opposed to writing down name 
+  print("Name is ",name)
+  print("Modification date is ", modDate)
+  print("Size is ",size)
   #print all file attributes, return type is ???
   
   
@@ -42,10 +50,10 @@ def getFileAttributes(directory, path):
 
 def writeCSV():
   #use the 'w' for mode to write in a new csv file using the with open method
-   with open('file_attributes.csv', 'w', newline='') as csvfile:
+   with open('file_attributes.csv', 'w', newline='') as csvfile: #assuming file_attributes.csv is a empty csv somewhere in syedAssignmentONe.py directory
         csv_writer = csv.writer(csvfile)
         csv_writer.writerow(["Permissions", "Size (MB)", "Modification Date", "File Name"])
-        csv_writer.writerows(file_attributes)
+        csv_writer.writerows(getFileAttributes)
 
 
   
@@ -55,7 +63,7 @@ def writeCSV():
 if __name__ == "__main__":
   # let's test out by passing in a directory
   directory = args.directory
-  path = read_files(directory)
+  path = read_files(directory) #name of all the files
   fileAttributes = getFileAttributes(directory, path)
-  
-  
+
+
