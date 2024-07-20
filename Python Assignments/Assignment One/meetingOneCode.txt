@@ -1,0 +1,21 @@
+import sys
+import os
+import re
+import os.path
+import argparse
+import gzip
+import csv
+ 
+ #walk dir
+foo = r"C:\Users\syeda\Downloads\WPI-IA-Portfolio-Optimization-and-Risk-Analysis"
+for dirs in os.scandir(foo):
+    print("it's a directory",dirs)
+    if os.path.isfile(dirs):
+        print("its a file",dirs)
+
+
+
+#find os functions such as listdir, walkdir, listfile
+    #use all these and print these out
+
+# func = os.listdir(foo)
