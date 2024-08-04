@@ -6,7 +6,7 @@ import csv
 
 # Step 1 Parse command line arguements(just the filename)
 parser = argparse.ArgumentParser(description='takes in file and outputds date of file, file size in MB, and name of file')
-parser.add_argument("--directory", type=str, help = "The directory in which you want info regarding files")
+parser.add_argument("--directory", type=str, help = "The directory in which you want info regarding files. Example: /mnt/c/Users/syeda/Downloads/myapp")
 args = parser.parse_args()
 #you can write python3 test.py /path/to/directory
 print("Argument passed was: ",args)
