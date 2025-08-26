@@ -56,10 +56,9 @@ class Tree(object):
         e = 0
         myCounter = Counter(Y)
         for i in range(len(Y)):
-            #FIXME: DO SOMETHING
-            # Need to somehow get probability from Y
-            # probability that y = i.. is this the chance the number appears in probability form?
-            probability = myCounter(Y[i])/len(Y)
+            #FIXME: Small syntax error here
+            print(myCounter)
+            probability = myCounter[Y[i]]/len(Y)
             e += math.log(probability, 2)
             e *= probability
         
