@@ -55,12 +55,9 @@ class Tree(object):
         ## INSERT YOUR CODE HERE
         e = 0
         myCounter = Counter(Y)
-        for i in range(len(Y)):
-            #FIXME: Small syntax error here
-            print(myCounter)
+        for i in range(len(myCounter)):
             probability = myCounter[Y[i]]/len(Y)
-            e += math.log(probability, 2)
-            e *= probability
+            e += probability * math.log(probability, 2)
         
         e = -e
 
