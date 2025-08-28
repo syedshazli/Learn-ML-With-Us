@@ -87,21 +87,24 @@ class Tree(object):
         # X is a list of each instance's attribute value. size is number of examples
         # Y is a list of each instance's target label. 
         # X[0] Target Label is Y[0]
-# For each possible value x that X can take
-# Weight the entropy of Y in that subgroup by how often that value occurs
-# Sum them up
+
+
+# FIXME: so there exists a list of outputs for each input.
+#        we need the probability of the input existing multiplied by entropy of the list of outputs
+
+        ## THIS WILL MAKE A LIST FOR EACH INPUT
         ce = 0
-        myCounter = Counter(Y)
-        myDict = {}
-        print(myCounter)
-        for i in range(len(X)):
-            probability = Y[i]/len(Y)
-            ce += probability * math.log(probability, 2)
+        grouped = {}
+        for x, y in zip(Y, X):
+            if x not in grouped:
+                grouped[x] = []
+            grouped[x].append(y)
 
-        
-        ce = -ce
-
-        
+        myCounter = Counter(X)
+        for i in range(len(myCounter)):
+            print(grouped)
+            print(myCounter[i])
+            ce += Tree.entropy(grouped[myCounter[i]]) 
    
 
 
