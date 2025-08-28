@@ -95,16 +95,18 @@ class Tree(object):
         ## THIS WILL MAKE A LIST FOR EACH INPUT
         ce = 0
         grouped = {}
-        for x, y in zip(Y, X):
+        for x, y in zip(X, Y):
             if x not in grouped:
-                grouped[x] = []
-            grouped[x].append(y)
+                grouped[y] = []
+            grouped[y].append(x)
 
         myCounter = Counter(X)
+        print(myCounter)
+        print(grouped)
         for i in range(len(myCounter)):
-            print(grouped)
-            print(myCounter[i])
-            ce += Tree.entropy(grouped[myCounter[i]]) 
+            # print(grouped)
+            # print(myCounter[i])
+            ce += Tree.entropy(myCounter[grouped[i]]) 
    
 
 
