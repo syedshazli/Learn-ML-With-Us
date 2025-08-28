@@ -83,6 +83,24 @@ class Tree(object):
         #########################################
         ## INSERT YOUR CODE HERE
 
+        # average entropy of children nodes given an attribute.
+        # X is a list of each instance's attribute value. size is number of examples
+        # Y is a list of each instance's target label. 
+        # X[0] Target Label is Y[0]
+# For each possible value x that X can take
+# Weight the entropy of Y in that subgroup by how often that value occurs
+# Sum them up
+        ce = 0
+        myCounter = Counter(Y)
+        myDict = {}
+        print(myCounter)
+        for i in range(len(X)):
+            probability = Y[i]/len(Y)
+            ce += probability * math.log(probability, 2)
+
+        
+        ce = -ce
+
         
    
 
