@@ -55,8 +55,8 @@ class Tree(object):
         ## INSERT YOUR CODE HERE
         e = 0
         myCounter = Counter(Y)
-        for i in range(len(myCounter)):
-            probability = myCounter[Y[i]]/len(Y)
+        for i in myCounter:
+            probability = myCounter[i]/len(Y)
             e += probability * math.log(probability, 2)
         
         e = -e
@@ -96,7 +96,6 @@ class Tree(object):
                 grouped[x] = []
             grouped[x].append(y)
 
-        print(grouped)
         for i in grouped:
             ce += Tree.entropy(grouped[i]) * myCounter[i]/len(Y)
    
@@ -120,6 +119,9 @@ class Tree(object):
         #########################################
         ## INSERT YOUR CODE HERE
         g = Tree.entropy(Y) - Tree.conditional_entropy(Y,X)
+        print(f"Entropy(Y): {Tree.entropy(Y)}")
+        print(f"Conditional Entropy: {Tree.conditional_entropy(Y,X)}")
+        print(f"Information Gain: {g}")
 
      
 
