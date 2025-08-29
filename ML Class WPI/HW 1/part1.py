@@ -88,11 +88,6 @@ class Tree(object):
         # Y is a list of each instance's target label. 
         # X[0] Target Label is Y[0]
 
-
-# FIXME: so there exists a list of outputs for each input.
-#        we need the probability of the input existing multiplied by entropy of the list of outputs
-
-        ## THIS WILL MAKE A LIST FOR EACH INPUT
         ce = 0
         grouped = {}
         myCounter = Counter(X)
@@ -105,9 +100,6 @@ class Tree(object):
         for i in grouped:
             ce += Tree.entropy(grouped[i]) * myCounter[i]/len(Y)
    
-
-
- 
         #########################################
         return ce 
     
@@ -127,8 +119,9 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
-    
+        g = Tree.entropy(Y) - Tree.conditional_entropy(Y,X)
 
+     
 
  
         #########################################
