@@ -119,9 +119,6 @@ class Tree(object):
         #########################################
         ## INSERT YOUR CODE HERE
         g = Tree.entropy(Y) - Tree.conditional_entropy(Y,X)
-        print(f"Entropy(Y): {Tree.entropy(Y)}")
-        print(f"Conditional Entropy: {Tree.conditional_entropy(Y,X)}")
-        print(f"Information Gain: {g}")
 
      
 
