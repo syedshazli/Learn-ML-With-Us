@@ -186,10 +186,47 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        # Confusions: 
+        # Do we create new node objects here?
+        # How can Y be split based on an arbitrary feature? What is the relation?
+        # What should be in the 'submatrix' of X & Y?
+        C = {}
+
+        # for each value in the current attribute split, store the value of the attribute and the indexes which it occurs
+        value_to_indices = {}
+        for index, value in enumerate(X[i]):
+            if value not in value_to_indices:
+                value_to_indices[value] = []
+            value_to_indices[value].append(index)
+        
+        for value, indices in value_to_indices.items():
+            X_subset = X[:,indices]
+            Y_subset = Y[indices]
+
+            # isItALeaf = False
+            # mySet = set(Y_subset)
+            # if len(mySet) == 1:
+            #     isItALeaf = True
+            
+            myNewList = Counter(Y_subset)
+            p = myNewList.most_common(1)
+
+            emptyCounter = None
+            emptyIndex = None
+            emptyP = None
+
+
+            childNode = Node(X_subset, Y_subset, emptyIndex, emptyCounter, False, emptyP)
+
+            # Store value of child node in dictionary
+            C[value] = childNode
+ 
+        
 
 
 
 
+        
         #########################################
         return C
 
