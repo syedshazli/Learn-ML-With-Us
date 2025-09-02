@@ -146,7 +146,8 @@ class Tree(object):
         ## INSERT YOUR CODE HERE
 
         # loop through features (rows) of matrix
-        # calculate info gain
+        # calculate info gain for each row
+        # Find index of best feature (which has most info gain)
         infoGain = []
         for row in X:
             infoGain.append(Tree.information_gain(Y, row))
@@ -297,6 +298,8 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        myNewList = Counter(Y)
+        y = myNewList.most_common(1)[0][0]
     
 
 
@@ -321,6 +324,17 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+
+        # it's recursive, as in we need to keep calling build_tree
+        if stop1 or stop2:
+            t.C = None
+            t.i = None
+            t.p = Tree.most_common(t.Y)
+            t.isleaf = True
+            return t
+        
+
+
     
 
    
