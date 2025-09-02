@@ -202,14 +202,8 @@ class Tree(object):
         for value, indices in value_to_indices.items():
             X_subset = X[:,indices]
             Y_subset = Y[indices]
-
-            # isItALeaf = False
-            # mySet = set(Y_subset)
-            # if len(mySet) == 1:
-            #     isItALeaf = True
             
             myNewList = Counter(Y_subset)
-            p = myNewList.most_common(1)
 
             emptyCounter = None
             emptyIndex = None
@@ -245,6 +239,11 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        s = False
+        mySet = set(Y)
+        if len(mySet) == 1:
+            s = True
+
 
 
 
