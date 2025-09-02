@@ -265,6 +265,13 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        s = False
+        for row in X:
+            if len(set(row)) == 1:
+                s = True
+            else:
+                s = False
+
 
     
    
