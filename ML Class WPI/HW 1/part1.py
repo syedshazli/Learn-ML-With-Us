@@ -440,7 +440,7 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
-        G = [None] * 4
+        G = [None] * X.shape[1]
         for i in range(len(G)):
             G[i] = Tree.inference(t,X[:,i ])
         
@@ -477,6 +477,21 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        X_DATA = []
+        Y_DATA = []
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+        
+        # skip first line
+        for line in lines[1:]:
+            mySplit = line.strip().split(',')
+            Y_DATA.append(mySplit[0])
+            X_DATA.append(mySplit[1:])
+        
+        X = np.array(X_DATA)
+        X = X.T
+        Y = np.array(Y_DATA)
+
 
 
 
