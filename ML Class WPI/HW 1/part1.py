@@ -367,6 +367,10 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        t = Node(X, Y)
+
+        Tree.build_tree(t)
+
     
 
 
@@ -391,6 +395,25 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+
+        # x is the feature values
+        # now based on the feature values, label the class
+        # but we must label it 'recursivley'
+        if t.isleaf == True:
+            return t.p
+        
+        # Otherwise, we are not at the leaf node. Keep calling this function
+
+        index = t.i
+        value = x[index]
+        if value not in t.C:
+            return t.p
+
+        myChild = t.C[value]
+
+
+        y = Tree.inference(myChild, x)
+        
 
    
 
