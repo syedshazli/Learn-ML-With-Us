@@ -440,6 +440,13 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
+        G = [None] * 4
+        for i in range(len(G)):
+            G[i] = Tree.inference(t,X[:,i ])
+        
+        Y = np.array(G)
+        
+
 
 
 
