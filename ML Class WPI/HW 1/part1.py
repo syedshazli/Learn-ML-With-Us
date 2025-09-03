@@ -266,12 +266,11 @@ class Tree(object):
         '''
         #########################################
         ## INSERT YOUR CODE HERE
-        s = False
+        s = True
         for row in X:
-            if len(set(row)) == 1:
-                s = True
-            else:
+            if len(set(row)) != 1:
                 s = False
+                break
 
 
     
@@ -326,12 +325,20 @@ class Tree(object):
         ## INSERT YOUR CODE HERE
 
         # it's recursive, as in we need to keep calling build_tree
-        if stop1 or stop2:
+        if Tree.stop1(t.Y) or Tree.stop2(t.X):
             t.C = None
             t.i = None
             t.p = Tree.most_common(t.Y)
             t.isleaf = True
             return t
+
+        t.i = Tree.best_attribute(t.X, t.Y)
+        t.C = Tree.split(t.X, t.Y, t.i)
+        t.p = Tree.most_common(t.Y)
+        t.isleaf = False
+
+        for value in t.C:
+            Tree.build_tree(t.C[value])
         
 
 
