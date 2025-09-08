@@ -13,10 +13,10 @@ import numpy as np
 #--------------------------
 def compute_Phi(x,p):
     '''
-        Compute the feature matrix Phi of x. We will construct p polynoials, the p features of the data samples. 
+        Compute the feature matrix Phi of x. We will construct p polynomials, the p features of the data samples. 
         The features of each sample, is x^0, x^1, x^2 ... x^(p-1)
         Input:
-            x : a vector of samples in one dimensional space, a numpy vector of shape (n,).
+            x : a vector of samples in one dimensional space, a numpy vector of shape (n,). (n = num elements in x)
                 Here n is the number of samples.
             p : the number of polynomials/features
         Output:
@@ -24,6 +24,20 @@ def compute_Phi(x,p):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+
+    # The numpy array returned should be returning an array that properly contains x to the p powers
+    
+    # Preliminary fill of the array
+    Phi = np.empty([p, x.size]) 
+    print(Phi)
+    for i in range(p):
+        Phi[i] = x
+        Phi[i] = Phi[i] ** i
+    
+    Phi = Phi.T
+    
+    
+
 
 
 
@@ -130,6 +144,7 @@ def train(X, Y, alpha=0.001, n_epoch=100):
     w = np.array(np.zeros(X.shape[1])).T
 
     for _ in range(n_epoch):
+        add = 5
 
     #########################################
     ## INSERT YOUR CODE HERE
@@ -142,7 +157,7 @@ def train(X, Y, alpha=0.001, n_epoch=100):
     # update the parameters w
         
 
-     #########################################
+    #########################################
     return w
 
 
