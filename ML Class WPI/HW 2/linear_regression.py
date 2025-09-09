@@ -172,15 +172,15 @@ def train(X, Y, alpha=0.001, n_epoch=100):
 
     #########################################
     ## INSERT YOUR CODE HERE
+        
+        # prediction becomes yhat
+        Yhat = X.dot(w)
+        # Compute the gradient of the cost function
+        dL_dw = compute_dL_dw(Y,Yhat, X)
+        # multiply alpha by cost function gradient, subtract this from w
+        w = update_w(w,dL_dw, alpha)
 
-    # Back propagation: compute local gradients 
         
-
-        
-        
-    # update the parameters w
-        
-
     #########################################
     return w
 
