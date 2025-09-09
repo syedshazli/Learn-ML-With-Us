@@ -115,6 +115,12 @@ def compute_dL_dw(y, yhat, Phi):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    
+    newArr = np.subtract(yhat,y)
+    dotWithX = np.dot(newArr, Phi)
+    dL_dw = dotWithX * 1/(len(y))
+
+
 
 
 
