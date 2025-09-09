@@ -27,9 +27,11 @@ def compute_Phi(x,p):
 
     # The numpy array returned should be returning an array that properly contains x to the p powers
     
-    # Preliminary fill of the array
+    # Preliminary fill of the array (not final dimensions, will be transposed)
     Phi = np.empty([p, x.size]) 
-    print(Phi)
+
+    # Can this be vectorized?
+
     for i in range(p):
         Phi[i] = x
         Phi[i] = Phi[i] ** i
@@ -59,6 +61,8 @@ def compute_yhat(Phi, w):
     #########################################
     ## INSERT YOUR CODE HERE
 
+    yhat = np.dot(Phi, w)
+
 
     #########################################
 
@@ -76,6 +80,19 @@ def compute_L(yhat,y):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+
+    # First do a non optimized pass
+    # L = 0
+    # for i in range(len(y)):
+    #     L += (yhat[i] - y[i]) ** 2
+
+    # L *= 1/(2*len(y))
+
+    # now for vectorized
+    newArr = np.subtract(yhat, y)
+    newArr = newArr ** 2
+    L = np.sum(newArr)
+    L *= 1/(2*len(y))
 
 
 
