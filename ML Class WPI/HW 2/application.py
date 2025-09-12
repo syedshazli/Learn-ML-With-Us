@@ -23,12 +23,33 @@ Xtrain, Ytrain, Xtest, Ytest = X[::2], y[::2], X[1::2], y[1::2]
 #########################################
 ## INSERT YOUR CODE HERE
 
-loss = 0
-w = train(Xtrain, Ytrain, alpha = 0.1, n_epoch = 12)
-# assert np.allclose(Xtrain.dot(w), Ytrain, atol = 1e-3) 
-print(Xtrain.dot(w))
-print(Ytrain)
-# print(Ytrain == Xtrain.dot(w))
+trainingLoss = 0
+w = train(Xtrain, Ytrain, alpha = 0.1, n_epoch = 100)
+
+PredictedTraining = Xtrain.dot(w)
+
+trainingLoss = compute_L(PredictedTraining, Ytrain)
+print("Training Loss is: "+str(trainingLoss))
+
+# Test Loss
+testLoss = 0
+
+PredictedTest = Xtest.dot(w)
+
+testLoss = compute_L(PredictedTest, Ytest)
+print("Test Loss is: "+str(testLoss))
+
+
+# Combined = Combined.astype('float64')
+# Ytrain = Ytrain.astype('float64')
+# for r in range(len(Ytrain)):
+#         if Combined[r] == Ytrain[r]:
+#             print("Hey")
+#         else:
+#             print("Here's our thing. Combined: " + str(Combined[r]) + " Ytrain: " + str(Ytrain[r]) + '\n')
+
+
+
 
 
 

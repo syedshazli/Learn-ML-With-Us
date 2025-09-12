@@ -168,7 +168,6 @@ def train(X, Y, alpha=0.001, n_epoch=100):
     w = np.array(np.zeros(X.shape[1])).T
 
     for _ in range(n_epoch):
-        add = 5
 
     #########################################
     ## INSERT YOUR CODE HERE
