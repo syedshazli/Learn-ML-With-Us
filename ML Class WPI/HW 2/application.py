@@ -23,6 +23,14 @@ Xtrain, Ytrain, Xtest, Ytest = X[::2], y[::2], X[1::2], y[1::2]
 #########################################
 ## INSERT YOUR CODE HERE
 
+loss = 0
+w = train(Xtrain, Ytrain, alpha = 0.1, n_epoch = 12)
+# assert np.allclose(Xtrain.dot(w), Ytrain, atol = 1e-3) 
+print(Xtrain.dot(w))
+print(Ytrain)
+# print(Ytrain == Xtrain.dot(w))
+
+
 
 #########################################
 

@@ -89,9 +89,9 @@ def compute_L(yhat,y):
     # L *= 1/(2*len(y))
 
     # now for vectorized
-    newArr = np.subtract(yhat, y)
-    newArr = newArr ** 2
-    L = np.sum(newArr)
+    loss = np.subtract(yhat, y)
+    loss = loss ** 2
+    L = np.sum(loss)
     L *= 1/(2*len(y))
 
 
