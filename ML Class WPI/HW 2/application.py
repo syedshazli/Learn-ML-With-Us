@@ -24,7 +24,7 @@ Xtrain, Ytrain, Xtest, Ytest = X[::2], y[::2], X[1::2], y[1::2]
 ## INSERT YOUR CODE HERE
 
 trainingLoss = 0
-w = train(Xtrain, Ytrain, alpha = 0.1, n_epoch = 100)
+w = train(Xtrain, Ytrain, alpha = 0.1, n_epoch = 90)
 
 PredictedTraining = Xtrain.dot(w)
 
