@@ -23,12 +23,15 @@ Xtrain, Ytrain, Xtest, Ytest = X[::2], y[::2], X[1::2], y[1::2]
 #########################################
 ## INSERT YOUR CODE HERE
 
+# optimal model
 trainingLoss = 0
 w = train(Xtrain, Ytrain, alpha = 0.1, n_epoch = 90)
 
 PredictedTraining = Xtrain.dot(w)
 
+
 trainingLoss = compute_L(PredictedTraining, Ytrain)
+print("OPTIMAL MODEL:")
 print("Training Loss is: "+str(trainingLoss))
 
 # Test Loss
@@ -40,18 +43,85 @@ testLoss = compute_L(PredictedTest, Ytest)
 print("Test Loss is: "+str(testLoss))
 
 
-# Combined = Combined.astype('float64')
-# Ytrain = Ytrain.astype('float64')
-# for r in range(len(Ytrain)):
-#         if Combined[r] == Ytrain[r]:
-#             print("Hey")
-#         else:
-#             print("Here's our thing. Combined: " + str(Combined[r]) + " Ytrain: " + str(Ytrain[r]) + '\n')
+# low learning rate, low number of epochs
+trainingLoss = 0
+w = train(Xtrain, Ytrain, alpha = 0.001, n_epoch = 20)
+
+PredictedTraining = Xtrain.dot(w)
+
+trainingLoss = compute_L(PredictedTraining, Ytrain)
+print("\nLow Epochs, Low Learning Rate")
+print("Training Loss is: "+str(trainingLoss))
+
+# Test Loss
+testLoss = 0
+
+PredictedTest = Xtest.dot(w)
+
+testLoss = compute_L(PredictedTest, Ytest)
+print("Test Loss is: "+str(testLoss))
+
+
+# low learning rate, high number of epochs
+
+trainingLoss = 0
+w = train(Xtrain, Ytrain, alpha = 0.001, n_epoch = 3000)
+
+PredictedTraining = Xtrain.dot(w)
+
+trainingLoss = compute_L(PredictedTraining, Ytrain)
+print("\n Low Learning Rate, High Number of Epochs")
+print("Training Loss is: "+str(trainingLoss))
+
+# Test Loss
+testLoss = 0
+
+PredictedTest = Xtest.dot(w)
+
+testLoss = compute_L(PredictedTest, Ytest)
+print("Test Loss is: "+str(testLoss))
 
 
 
+# High Learning rate, low epochs
+
+trainingLoss = 0
+w = train(Xtrain, Ytrain, alpha = 1, n_epoch = 20)
+
+PredictedTraining = Xtrain.dot(w)
+
+trainingLoss = compute_L(PredictedTraining, Ytrain)
+print("\n High Learning Rate, Low Number of Epochs")
+print("Training Loss is: "+str(trainingLoss))
+
+# Test Loss
+testLoss = 0
+
+PredictedTest = Xtest.dot(w)
+
+testLoss = compute_L(PredictedTest, Ytest)
+print("Test Loss is: "+str(testLoss))
 
 
+
+# High learning rate, high epochs
+
+trainingLoss = 0
+w = train(Xtrain, Ytrain, alpha = 1, n_epoch = 3000)
+
+PredictedTraining = Xtrain.dot(w)
+
+trainingLoss = compute_L(PredictedTraining, Ytrain)
+print("\n High Learning Rate, High Number of Epochs")
+print("Training Loss is: "+str(trainingLoss))
+
+# Test Loss
+testLoss = 0
+
+PredictedTest = Xtest.dot(w)
+
+testLoss = compute_L(PredictedTest, Ytest)
+print("Test Loss is: "+str(testLoss))
 
 #########################################
 
