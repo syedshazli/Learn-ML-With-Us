@@ -20,7 +20,7 @@ def test_compute_Phi():
     x = np.array([1.,2.,3])
 
     Phi = compute_Phi(x,2) 
-    assert np.allclose(Phi.T, [[1,1,1],[1,2,3]], atol = 1e-3) 
+    assert np.allclose(Phi.T, [[1,1,1], [1,2,3]], atol = 1e-3) 
 
     Phi = compute_Phi(x,3) 
     assert np.allclose(Phi.T, [[1,1,1],[1,2,3],[1,4,9]], atol = 1e-3) 
@@ -46,6 +46,7 @@ def test_compute_yhat():
 
 	# an example feature matrix with 2 features for 3 instances
     w = np.array([0.5, -0.6])  # Create a 1D array
+    # 3 X 2 * 2 * 1
     x = np.array([[2.0, 0.8], [5.0, 0.9], [6.0, 3.0]])
     yhat = compute_yhat(x,w)
 
