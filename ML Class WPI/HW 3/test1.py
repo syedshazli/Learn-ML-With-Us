@@ -169,19 +169,21 @@ def test_compute_dL_da():
     assert np.allclose(a, np.array([1., 0.]))
 
 
-# #-------------------------------------------------------------------------
-# def test_check_dL_da():
-#     '''(3 point) check dL_da'''
-#     for _ in range(20):
-#         c = np.random.randint(2, 10)  # number of classes
-#         a = np.random.random(c)  # activation
-#         a = (a + 1) / (a + 1).sum()
-#         y = np.random.randint(c)  # label
-#         # analytical gradients
-#         da = compute_dL_da(a, y)
-#         # numerical gradients
-#         da_true = check_dL_da(a, y)
-#         assert np.allclose(da, da_true, atol=1e-2)
+#-------------------------------------------------------------------------
+def test_check_dL_da():
+    '''(3 point) check dL_da'''
+    for _ in range(20):
+        c = np.random.randint(2, 10)  # number of classes
+        a = np.random.random(c)  # activation
+        a = (a + 1) / (a + 1).sum()
+        y = np.random.randint(c)  # label
+        # analytical gradients
+        da = compute_dL_da(a, y)
+
+
+        # numerical gradients
+        da_true = check_dL_da(a, y)
+        assert np.allclose(da, da_true, atol=1e-2)
 
 
 # #-------------------------------------------------------------------------

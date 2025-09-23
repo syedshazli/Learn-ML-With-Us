@@ -173,7 +173,18 @@ def compute_dL_da(a, y):
                    The i-th element dL_da[i] represents the partial gradient of the loss function w.r.t. the i-th activation a[i]:  d_L / d_a[i].
     '''
     #########################################
-    ## INSERT YOUR CODE HERE    
+    ## INSERT YOUR CODE HERE  
+    dL_da = [0] * len(a)
+    b = np.array(a, copy = True)
+
+    dL_da = np.array(dL_da)
+    # We cannot divide by zero, so make this number really smalle
+    if b[y] == 0:
+        b[y] = 1e-7
+    dL_da[y] = -1/b[y]
+
+    
+ 
 
     #########################################
     return dL_da 
