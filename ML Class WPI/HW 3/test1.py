@@ -239,53 +239,53 @@ def test_check_dz_dW():
 
         assert np.allclose(dz_dW, dz_dW_true, atol=1e-3)
 
-#     #-------------------------------------------------------------------------
-# def test_check_dz_db():
-#     '''(3 points) check dz_db'''
-#     for _ in range(20):
-#         c = np.random.randint(2, 10)
-#         p = np.random.randint(2, 20)
-#         x = np.random.random(p)
-#         W = np.random.random((c, p))
-#         b = np.random.random(c)
-#         # analytical gradients
-#         dz_db = compute_dz_db(c)
-#         # numerical gradients
-#         dz_db_true = check_dz_db(x, W, b)
+    #-------------------------------------------------------------------------
+def test_check_dz_db():
+    '''(3 points) check dz_db'''
+    for _ in range(20):
+        c = np.random.randint(2, 10)
+        p = np.random.randint(2, 20)
+        x = np.random.random(p)
+        W = np.random.random((c, p))
+        b = np.random.random(c)
+        # analytical gradients
+        dz_db = compute_dz_db(c)
+        # numerical gradients
+        dz_db_true = check_dz_db(x, W, b)
 
-#         assert np.allclose(dz_db, dz_db_true, atol=1e-3)
+        assert np.allclose(dz_db, dz_db_true, atol=1e-3)
 
-#     #-------------------------------------------------------------------------
-# def test_backward():
-#     '''(3 points) backward'''
-#     x = np.array([1., 2., 3.])
-#     y = 1
-#     a = np.array([.5, .5])
-#     da, dz, dW, db = backward(x, y, a)
-#     print(da.shape)
-#     print(dz.shape)
-#     print(dW.shape)
-#     print(db.shape)
-#     print(da, dz, dW, db)
+    #-------------------------------------------------------------------------
+def test_backward():
+    '''(3 points) backward'''
+    x = np.array([1., 2., 3.])
+    y = 1
+    a = np.array([.5, .5])
+    da, dz, dW, db = backward(x, y, a)
+    print(da.shape)
+    print(dz.shape)
+    print(dW.shape)
+    print(db.shape)
+    print(da, dz, dW, db)
 
-#     assert type(da) == np.ndarray
-#     assert type(dz) == np.ndarray
-#     assert type(dW) == np.ndarray
-#     assert type(db) == np.ndarray
-#     assert da.shape == (2,)
-#     assert dz.shape == (2, 2)
-#     assert dW.shape == (2, 3)
-#     assert db.shape == (2,)
+    assert type(da) == np.ndarray
+    assert type(dz) == np.ndarray
+    assert type(dW) == np.ndarray
+    assert type(db) == np.ndarray
+    assert da.shape == (2,)
+    assert dz.shape == (2, 2)
+    assert dW.shape == (2, 3)
+    assert db.shape == (2,)
 
-#     da_true = np.array([0., -2.])
-#     dz_true = [[0.25, -0.25], [-0.25, 0.25]]
-#     dW_true = [[1., 2., 3.], [1., 2., 3.]]
-#     db_true = np.array([1., 1.])
+    da_true = np.array([0., -2.])
+    dz_true = [[0.25, -0.25], [-0.25, 0.25]]
+    dW_true = [[1., 2., 3.], [1., 2., 3.]]
+    db_true = np.array([1., 1.])
 
-#     assert np.allclose(da, da_true, atol=1e-3)
-#     assert np.allclose(dz, dz_true, atol=1e-3)
-#     assert np.allclose(dW, dW_true, atol=1e-3)
-#     assert np.allclose(db, db_true, atol=1e-3)
+    assert np.allclose(da, da_true, atol=1e-3)
+    assert np.allclose(dz, dz_true, atol=1e-3)
+    assert np.allclose(dW, dW_true, atol=1e-3)
+    assert np.allclose(db, db_true, atol=1e-3)
 
 
 # #-------------------------------------------------------------------------

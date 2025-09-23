@@ -234,6 +234,7 @@ def compute_dz_dW(x,c):
     dz_dW = np.zeros((c, len(x)))
     for i in range(c):
         for j in range(len(x)):
+            # for each of our features which have respective weights, the deriv with respect to that weight is x[j]
             dz_dW[i][j] = x[j]
 
 
@@ -256,6 +257,7 @@ def compute_dz_db(c):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    dz_db = np.ones(c)
 
     #########################################
     return dz_db
