@@ -174,14 +174,15 @@ def compute_dL_da(a, y):
     '''
     #########################################
     ## INSERT YOUR CODE HERE  
-    dL_da = [0] * len(a)
-    b = np.array(a, copy = True)
+    dL_da = np.zeros(len(a))
 
-    dL_da = np.array(dL_da)
+
+
     # We cannot divide by zero, so make this number really smalle
-    if b[y] == 0:
-        b[y] = 1e-7
-    dL_da[y] = -1/b[y]
+    if a[y] == 0:
+        dL_da[y] = -1/1e-7
+    else:
+        dL_da[y] = -1/a[y]
 
     
  
@@ -204,6 +205,13 @@ def compute_da_dz(a):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    da_dz = np.zeros((len(a), len(a)))
+    for i in range(len(a)):
+        for j in range(len(a)):
+            if i == j:
+                da_dz[i][j] = a[i] * (1-a[j])
+            else:
+                da_dz[i][j] = a[i] * (-a[j])
 
     #########################################
     return da_dz 
@@ -223,6 +231,11 @@ def compute_dz_dW(x,c):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    dz_dW = np.zeros((c, len(x)))
+    for i in range(c):
+        for j in range(len(x)):
+            dz_dW[i][j] = x[j]
+
 
     #########################################
     return dz_dW

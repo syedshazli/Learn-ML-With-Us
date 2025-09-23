@@ -186,58 +186,58 @@ def test_check_dL_da():
         assert np.allclose(da, da_true, atol=1e-2)
 
 
-# #-------------------------------------------------------------------------
-# def test_compute_da_dz():
-#     '''(3 point) compute_da_dz'''
-#     a = np.array([0.3, 0.7])
-#     da_dz = compute_da_dz(a)
+#-------------------------------------------------------------------------
+def test_compute_da_dz():
+    '''(3 point) compute_da_dz'''
+    a = np.array([0.3, 0.7])
+    da_dz = compute_da_dz(a)
 
-#     assert type(da_dz) == np.ndarray
-#     assert da_dz.shape == (2, 2)
-#     assert np.allclose(da_dz, [[.21, -.21], [-.21, .21]], atol=1e-3)
+    assert type(da_dz) == np.ndarray
+    assert da_dz.shape == (2, 2)
+    assert np.allclose(da_dz, [[.21, -.21], [-.21, .21]], atol=1e-3)
 
-#     a = np.array([0.1, 0.2, 0.7])
-#     da_dz = compute_da_dz(a)
-#     assert da_dz.shape == (3, 3)
+    a = np.array([0.1, 0.2, 0.7])
+    da_dz = compute_da_dz(a)
+    assert da_dz.shape == (3, 3)
 
-#     da_dz_true = np.array([[0.09, -0.02, -0.07],
-#                            [-0.02, 0.16, -0.14],
-#                            [-0.07, -0.14, 0.21]])
+    da_dz_true = np.array([[0.09, -0.02, -0.07],
+                           [-0.02, 0.16, -0.14],
+                           [-0.07, -0.14, 0.21]])
 
-#     assert np.allclose(da_dz, da_dz_true, atol=1e-3)
-
-
-# #-------------------------------------------------------------------------
-# def test_check_da_dz():
-#     '''(3 point) check da_dz'''
-#     for _ in range(20):
-#         c = np.random.randint(2, 10)
-#         z = np.random.random(c)
-#         a = compute_a(z)
-#         # print('a', a.shape)
-#         # analytical gradients
-#         dz = compute_da_dz(a)
-#         # print('dz',dz)
-#         # numerical gradients
-#         dz_true = check_da_dz(z)
-#         assert np.allclose(dz, dz_true, atol=1e-3)
+    assert np.allclose(da_dz, da_dz_true, atol=1e-3)
 
 
-# #-------------------------------------------------------------------------
-# def test_check_dz_dW():
-#     '''(3 points) check dz_dW'''
-#     for _ in range(20):
-#         c = np.random.randint(2, 10)
-#         p = np.random.randint(2, 20)
-#         x = np.random.random(p)
-#         W = np.random.random((c, p))
-#         b = np.random.random(c)
-#         # analytical gradients
-#         dz_dW = compute_dz_dW(x, c)
-#         # numerical gradients
-#         dz_dW_true = check_dz_dW(x, W, b)
+#-------------------------------------------------------------------------
+def test_check_da_dz():
+    '''(3 point) check da_dz'''
+    for _ in range(20):
+        c = np.random.randint(2, 10)
+        z = np.random.random(c)
+        a = compute_a(z)
+        # print('a', a.shape)
+        # analytical gradients
+        dz = compute_da_dz(a)
+        # print('dz',dz)
+        # numerical gradients
+        dz_true = check_da_dz(z)
+        assert np.allclose(dz, dz_true, atol=1e-3)
 
-#         assert np.allclose(dz_dW, dz_dW_true, atol=1e-3)
+
+#-------------------------------------------------------------------------
+def test_check_dz_dW():
+    '''(3 points) check dz_dW'''
+    for _ in range(20):
+        c = np.random.randint(2, 10)
+        p = np.random.randint(2, 20)
+        x = np.random.random(p)
+        W = np.random.random((c, p))
+        b = np.random.random(c)
+        # analytical gradients
+        dz_dW = compute_dz_dW(x, c)
+        # numerical gradients
+        dz_dW_true = check_dz_dW(x, W, b)
+
+        assert np.allclose(dz_dW, dz_dW_true, atol=1e-3)
 
 #     #-------------------------------------------------------------------------
 # def test_check_dz_db():
