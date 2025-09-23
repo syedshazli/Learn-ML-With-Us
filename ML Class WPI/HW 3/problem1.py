@@ -64,6 +64,7 @@ def compute_z(x,W,b):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    z = np.dot(W,x) + b
 
     #########################################
     return z 
@@ -80,6 +81,20 @@ def compute_a(z):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    b = np.array(z, copy = True)
+    for i in range(len(z)):
+        if z[i] > 700:
+            b[i] = 700
+        elif z[i] < -700:
+            b[i] = -700
+    a = np.array(b, copy = True)
+    summation = np.sum(np.exp(b))
+    
+    
+    a = np.exp(a)/summation
+ 
+    
+
 
     #########################################
     return a
@@ -96,6 +111,20 @@ def compute_L(a,y):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+
+    # y is the label of 1 training instance. 
+    # a is the ACTIVATIONS, meaning it's the output of computing softmax
+    # softmax will tell us the predicted probability that your class is the actual class
+    # so sum of a will be 1
+
+    # Give a very large loss if the actual class was a[y] but we predicted 0% probability
+    if a[y] == 0:
+        L = 1e6
+    else:
+        L = -1*math.log(a[y])
+
+
+
 
     #########################################
     return L 
@@ -116,6 +145,11 @@ def forward(x,y,W,b):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    z = compute_z(x,W,b)
+    a = compute_a(z)
+    L = compute_L(a,y)
+
+
 
     #########################################
     return z, a, L 
