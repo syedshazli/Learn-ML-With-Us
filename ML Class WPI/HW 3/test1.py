@@ -454,32 +454,33 @@ def test_predict():
                   [0.47502081, 0.52497919]]
 
     # check the correctness of the result
-    assert np.allclose(Ytest, Ytest_true, atol=1e-2)
+    # assert np.allclose(Ytest, Ytest_true, atol=1e-2)
     assert np.allclose(Ptest, Ptest_true, atol=1e-2)
+    assert np.allclose(Ytest, Ytest_true, atol=1e-2)
 
 
-# #-------------------------------------------------------------------------
-# def test_softmax_regression():
-#     '''(3 point) softmax regression'''
+#-------------------------------------------------------------------------
+def test_softmax_regression():
+    '''(3 point) softmax regression'''
 
-#     # create a multi-class classification dataset
-#     n_samples = 400
-#     X, y = make_classification(n_samples=n_samples,
-#                                n_features=5, n_redundant=0, n_informative=4,
-#                                n_classes=3,
-#                                class_sep=3.,
-#                                random_state=1)
+    # create a multi-class classification dataset
+    n_samples = 400
+    X, y = make_classification(n_samples=n_samples,
+                               n_features=5, n_redundant=0, n_informative=4,
+                               n_classes=3,
+                               class_sep=3.,
+                               random_state=1)
 
-#     # X = np.asmatrix(X)
-#     Xtrain, Ytrain, Xtest, Ytest = X[::2], y[::2], X[1::2], y[1::2]
-#     w, b = train(Xtrain, Ytrain, alpha=.01, n_epoch=100)
-#     Y, P = predict(Xtrain, w, b)
-#     accuracy = sum(Y == Ytrain) / (n_samples / 2.)
-#     print('Training accuracy:', accuracy)
-#     assert accuracy > 0.9
-#     Y, P = predict(Xtest, w, b)
-#     accuracy = sum(Y == Ytest) / (n_samples / 2.)
-#     print('Test accuracy:', accuracy)
-#     assert accuracy > 0.85
+    # X = np.asmatrix(X)
+    Xtrain, Ytrain, Xtest, Ytest = X[::2], y[::2], X[1::2], y[1::2]
+    w, b = train(Xtrain, Ytrain, alpha=.01, n_epoch=100)
+    Y, P = predict(Xtrain, w, b)
+    accuracy = sum(Y == Ytrain) / (n_samples / 2.)
+    print('Training accuracy:', accuracy)
+    assert accuracy > 0.9
+    Y, P = predict(Xtest, w, b)
+    accuracy = sum(Y == Ytest) / (n_samples / 2.)
+    print('Test accuracy:', accuracy)
+    assert accuracy > 0.85
 
 

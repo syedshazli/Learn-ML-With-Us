@@ -81,14 +81,14 @@ def compute_a(z):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
-    b = np.array(z, copy = True)
+    a = np.array(z, copy = True)
     for i in range(len(z)):
         if z[i] > 700:
-            b[i] = 700
+            a[i] = 700
         elif z[i] < -700:
-            b[i] = -700
-    a = np.array(b, copy = True)
-    summation = np.sum(np.exp(b))
+            a[i] = -700
+ 
+    summation = np.sum(np.exp(a))
     
     
     a = np.exp(a)/summation
@@ -475,11 +475,21 @@ def predict(Xtest, W, b):
     c = W.shape[0]
     Y = np.zeros(n, dtype=int) # Initialize Y as integer array
     P = np.zeros((n, c)) # Initialize P with correct shape
+
     for i, x in enumerate(Xtest):
         print('for loop')
         #########################################
         ## INSERT YOUR CODE HERE
-        Y = np.dot()
+
+        # Weights and bias are learned so we use that and dot 
+
+        z = compute_z(x, W, b)
+        a = compute_a(z)
+        print(a)
+        P[i] = a
+        Y[i] = np.argmax(a)
+        
+        
 
         #########################################
     return Y, P 
