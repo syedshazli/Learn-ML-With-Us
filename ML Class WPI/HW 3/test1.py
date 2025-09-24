@@ -288,173 +288,174 @@ def test_backward():
     assert np.allclose(db, db_true, atol=1e-3)
 
 
-# #-------------------------------------------------------------------------
-# def test_compute_dL_dz():
-#     '''(3 points) compute_dL_dz'''
-#     dL_da = np.array([0., -2.])
-#     da_dz = np.array([[0.25, -0.25], [-0.25, 0.25]])
-#     dz_dW = np.array([[1., 2., 3.], [1., 2., 3.]])
+#-------------------------------------------------------------------------
+def test_compute_dL_dz():
+    '''(3 points) compute_dL_dz'''
+    dL_da = np.array([0., -2.])
+    da_dz = np.array([[0.25, -0.25], [-0.25, 0.25]])
+    dz_dW = np.array([[1., 2., 3.], [1., 2., 3.]])
 
-#     dL_dz = compute_dL_dz(dL_da, da_dz)
+    dL_dz = compute_dL_dz(dL_da, da_dz)
 
-#     assert type(dL_dz) == np.ndarray
-#     assert dL_dz.shape == (2,)
-#     print(dL_dz)
+    assert type(dL_dz) == np.ndarray
+    assert dL_dz.shape == (2,)
+    print(dL_dz)
 
-#     dL_dz_true = np.array([0.5, -0.5])
-#     assert np.allclose(dL_dz, dL_dz_true, atol=1e-3)
-
-
-# #-------------------------------------------------------------------------
-# def test_compute_dL_dW():
-#     '''(3 points) compute_dL_dW'''
-#     dL_dz = np.array([[0.5], [-0.5]])
-#     dz_dW = np.array([[1., 2., 3.], [1., 2., 3.]])
-
-#     dL_dW = compute_dL_dW(dL_dz, dz_dW)
-
-#     assert type(dL_dW) == np.ndarray
-#     assert dL_dW.shape == (2, 3)
-
-#     dL_dW_true = [[0.5, 1.0, 1.5],
-#                   [-0.5, -1.0, -1.5]]
-#     assert np.allclose(dL_dW, dL_dW_true, atol=1e-3)
+    dL_dz_true = np.array([0.5, -0.5])
+    assert np.allclose(dL_dz, dL_dz_true, atol=1e-3)
 
 
-# #-------------------------------------------------------------------------
-# def test_check_dL_dW():
-#     '''(3 points) check dL_dW'''
-#     for _ in range(20):
-#         p = np.random.randint(2, 10)  # number of features
-#         c = np.random.randint(2, 10)  # number of classes
-#         x = np.random.random(p)
-#         y = np.random.randint(c)
-#         W = np.random.random((c, p))
-#         b = np.random.random(c)
-#         z, a, L = forward(x, y, W, b)
-#         dL_da, da_dz, dz_dW, dz_db = backward(x, y, a)
-#         dL_dz = compute_dL_dz(dL_da, da_dz)
+#-------------------------------------------------------------------------
+def test_compute_dL_dW():
+    '''(3 points) compute_dL_dW'''
+    dL_dz = np.array([[0.5], [-0.5]])
+    dz_dW = np.array([[1., 2., 3.], [1., 2., 3.]])
 
-#         # analytical gradients
-#         dL_dW = compute_dL_dW(dL_dz, dz_dW)
-#         # numerical gradients
-#         dL_dW_true = check_dL_dW(x, y, W, b)
+    dL_dW = compute_dL_dW(dL_dz, dz_dW)
 
-#         # print(dL_dW)
-#         # print(dL_dW_true)
-#         assert np.allclose(dL_dW, dL_dW_true, atol=1e-3)
+    assert type(dL_dW) == np.ndarray
+    assert dL_dW.shape == (2, 3)
+
+    dL_dW_true = [[0.5, 1.0, 1.5],
+                  [-0.5, -1.0, -1.5]]
+    assert np.allclose(dL_dW, dL_dW_true, atol=1e-3)
 
 
-# #-------------------------------------------------------------------------
-# def test_check_dL_db():
-#     '''(3 point) check dL_db'''
-#     for _ in range(20):
-#         p = np.random.randint(2, 10)  # number of features
-#         c = np.random.randint(2, 10)  # number of classes
-#         x = np.random.random((p, 1))
-#         y = np.random.randint(c)
-#         W = np.random.random((c, p))
-#         b = np.random.random((c, 1))
-#         z, a, L = forward(x, y, W, b)
-#         dL_da, da_dz, dz_dW, dz_db = backward(x, y, a)
-#         dL_dz = compute_dL_dz(dL_da, da_dz)
+#-------------------------------------------------------------------------
+def test_check_dL_dW():
+    '''(3 points) check dL_dW'''
+    for _ in range(20):
+        p = np.random.randint(2, 10)  # number of features
+        c = np.random.randint(2, 10)  # number of classes
+        x = np.random.random(p)
+        y = np.random.randint(c)
+        W = np.random.random((c, p))
+        b = np.random.random(c)
+        z, a, L = forward(x, y, W, b)
+        dL_da, da_dz, dz_dW, dz_db = backward(x, y, a)
+        dL_dz = compute_dL_dz(dL_da, da_dz)
 
-#         # analytical gradients
-#         dL_db = compute_dL_db(dL_dz, dz_db)
-#         # numerical gradients
-#         dL_db_true = check_dL_db(x, y, W, b)
+        # analytical gradients
+        dL_dW = compute_dL_dW(dL_dz, dz_dW)
+        # numerical gradients
+        dL_dW_true = check_dL_dW(x, y, W, b)
 
-#         # print(dL_db.shape)
-#         # print(dL_db_true.shape)
-
-#         assert np.allclose(dL_db, dL_db_true, atol=1e-3)
-
-# #-------------------------------------------------------------------------
-# def test_update_W():
-#     '''(3 point) update_W'''
-
-#     W = np.array([[0., 0., 0.], [0., 0., 0.]])
-#     dL_dW = np.array([[0.5, 1.0, 1.5],
-#                       [-0.5, -1.0, -1.5]])
-
-#     W = update_W(W, dL_dW, alpha=1.)
-#     W_true = [[-0.5, -1., -1.5],
-#               [0.5, 1., 1.5]]
-#     assert np.allclose(W, W_true, atol=1e-3)
-
-#     W = np.array([[0., 0., 0.], [0., 0., 0.]])
-#     W = update_W(W, dL_dW, alpha=10.)
-#     W_true = [[-5., -10., -15.],
-#               [5., 10., 15.]]
-#     assert np.allclose(W, W_true, atol=1e-3)
+        print(dL_dW)
+        print(dL_dW_true)
+        assert np.allclose(dL_dW, dL_dW_true, atol=1e-3)
 
 
-# #-------------------------------------------------------------------------
-# def test_update_b():
-#     '''(3 point) update_b'''
-#     b = np.array([0.,0.])
-#     dL_db = np.array([0.5, -0.5])
+#-------------------------------------------------------------------------
+def test_check_dL_db():
+    '''(3 point) check dL_db'''
+    for _ in range(20):
+        p = np.random.randint(2, 10)  # number of features
+        c = np.random.randint(2, 10)  # number of classes
+        x = np.random.random((p, 1))
+        y = np.random.randint(c)
+        W = np.random.random((c, p))
+        b = np.random.random((c, 1))
+        z, a, L = forward(x, y, W, b)
+        dL_da, da_dz, dz_dW, dz_db = backward(x, y, a)
+        dL_dz = compute_dL_dz(dL_da, da_dz)
 
-#     b = update_b(b, dL_db, alpha=1.)
+        # analytical gradients
+        dL_db = compute_dL_db(dL_dz, dz_db)
+        # numerical gradients
+        dL_db_true = check_dL_db(x, y, W, b)
 
-#     b_true = np.array([-0.5,0.5])
-#     assert np.allclose(b, b_true, atol = 1e-3)
+        # print(dL_db.shape)
+        # print(dL_db_true.shape)
 
-#     b = np.array([0.,0.])
-#     b = update_b(b, dL_db, alpha=10.)
-#     b_true = np.array([-5.,5.])
-#     assert np.allclose(b, b_true, atol = 1e-3)
+        assert np.allclose(dL_db, dL_db_true, atol=1e-3)
 
+#-------------------------------------------------------------------------
+def test_update_W():
+    '''(3 point) update_W'''
 
-# #-------------------------------------------------------------------------
-# def test_train():
-#     '''(3 point) train'''
-#     # an example feature matrix (4 instances, 2 features)
-#     Xtrain = np.array([[0., 1.],
-#                        [1., 0.],
-#                        [0., 0.],
-#                        [1., 1.]])
-#     Ytrain = np.array([0, 1, 0, 1])
+    W = np.array([[0., 0., 0.], [0., 0., 0.]])
+    dL_dW = np.array([[0.5, 1.0, 1.5],
+                      [-0.5, -1.0, -1.5]])
 
-#     # call the function
-#     W, b = train(Xtrain, Ytrain)
+    W = update_W(W, dL_dW, alpha=1.)
+    W_true = [[-0.5, -1., -1.5],
+              [0.5, 1., 1.5]]
+    assert np.allclose(W, W_true, atol=1e-3)
 
-#     assert b[0] > b[1]  # x3 is negative
-#     assert W[1, 0] + W[1, 1] + b[1] > W[0, 0] + W[0, 1] + b[0]  # x4 is positive
-#     assert W[1, 1] + b[1] < W[0, 1] + b[0]  # x1 is negative
-#     assert W[1, 0] + b[1] > W[0, 0] + b[0]  # x2 is positive
+    W = np.array([[0., 0., 0.], [0., 0., 0.]])
+    W = update_W(W, dL_dW, alpha=10.)
+    W_true = [[-5., -10., -15.],
+              [5., 10., 15.]]
+    assert np.allclose(W, W_true, atol=1e-3)
 
 
-# #-------------------------------------------------------------------------
-# def test_predict():
-#     '''(3 points) test'''
-#     # an example feature matrix (4 instances, 2 features)
-#     Xtest = np.array([[0., 1.],
-#                       [1., 0.],
-#                       [0., 0.],
-#                       [1., 1.]])
+#-------------------------------------------------------------------------
+def test_update_b():
+    '''(3 point) update_b'''
+    b = np.array([0.,0.])
+    dL_db = np.array([0.5, -0.5])
 
-#     W = np.array([[0.4, 0.],
-#                   [0.6, 0.]])
-#     b = np.array([0.1, 0.])
+    b = update_b(b, dL_db, alpha=1.)
 
-#     # call the function
-#     Ytest, Ptest = predict(Xtest, W, b)
+    b_true = np.array([-0.5,0.5])
+    assert np.allclose(b, b_true, atol = 1e-3)
 
-#     assert type(Ytest) == np.ndarray
-#     assert Ytest.shape == (4,)
-#     assert type(Ptest) == np.ndarray
-#     assert Ptest.shape == (4, 2)
+    b = np.array([0.,0.])
+    b = update_b(b, dL_db, alpha=10.)
+    b_true = np.array([-5.,5.])
+    assert np.allclose(b, b_true, atol = 1e-3)
 
-#     Ytest_true = [0, 1, 0, 1]
-#     Ptest_true = [[0.52497919, 0.47502081],
-#                   [0.47502081, 0.52497919],
-#                   [0.52497919, 0.47502081],
-#                   [0.47502081, 0.52497919]]
 
-#     # check the correctness of the result
-#     assert np.allclose(Ytest, Ytest_true, atol=1e-2)
-#     assert np.allclose(Ptest, Ptest_true, atol=1e-2)
+#-------------------------------------------------------------------------
+def test_train():
+    '''(3 point) train'''
+    # an example feature matrix (4 instances, 2 features)
+    Xtrain = np.array([[0., 1.],
+                       [1., 0.],
+                       [0., 0.],
+                       [1., 1.]])
+    Ytrain = np.array([0, 1, 0, 1])
+
+    # call the function
+    W, b = train(Xtrain, Ytrain)
+
+
+    assert b[0] > b[1]  # x3 is negative
+    assert W[1, 0] + W[1, 1] + b[1] > W[0, 0] + W[0, 1] + b[0]  # x4 is positive
+    assert W[1, 1] + b[1] < W[0, 1] + b[0]  # x1 is negative
+    assert W[1, 0] + b[1] > W[0, 0] + b[0]  # x2 is positive
+
+
+#-------------------------------------------------------------------------
+def test_predict():
+    '''(3 points) test'''
+    # an example feature matrix (4 instances, 2 features)
+    Xtest = np.array([[0., 1.],
+                      [1., 0.],
+                      [0., 0.],
+                      [1., 1.]])
+
+    W = np.array([[0.4, 0.],
+                  [0.6, 0.]])
+    b = np.array([0.1, 0.])
+
+    # call the function
+    Ytest, Ptest = predict(Xtest, W, b)
+
+    assert type(Ytest) == np.ndarray
+    assert Ytest.shape == (4,)
+    assert type(Ptest) == np.ndarray
+    assert Ptest.shape == (4, 2)
+
+    Ytest_true = [0, 1, 0, 1]
+    Ptest_true = [[0.52497919, 0.47502081],
+                  [0.47502081, 0.52497919],
+                  [0.52497919, 0.47502081],
+                  [0.47502081, 0.52497919]]
+
+    # check the correctness of the result
+    assert np.allclose(Ytest, Ytest_true, atol=1e-2)
+    assert np.allclose(Ptest, Ptest_true, atol=1e-2)
 
 
 # #-------------------------------------------------------------------------

@@ -121,7 +121,8 @@ def compute_L(a,y):
     if a[y] == 0:
         L = 1e6
     else:
-        L = -1*math.log(a[y])
+        L = -1*np.log(a[y])
+    L = float(L)
 
 
 
@@ -178,7 +179,7 @@ def compute_dL_da(a, y):
 
 
 
-    # We cannot divide by zero, so make this number really smalle
+    # We cannot divide by zero, so make this number really small
     if a[y] == 0:
         dL_da[y] = -1/1e-7
     else:
@@ -287,6 +288,10 @@ def backward(x, y, a):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    dL_da = compute_dL_da(a, y)
+    da_dz = compute_da_dz(a)
+    dz_dW = compute_dz_dW(x,len(a))
+    dz_db = compute_dz_db(len(a))
 
     #########################################
     return dL_da, da_dz, dz_dW, dz_db
@@ -306,6 +311,7 @@ def compute_dL_dz(dL_da,da_dz):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    dL_dz = np.dot(dL_da, da_dz)
 
     #########################################
     return dL_dz
@@ -328,6 +334,11 @@ def compute_dL_dW(dL_dz,dz_dW):
     #########################################
     ## INSERT YOUR CODE HERE
 
+    # must reshae so multiplication will work, it's not like numpy dot products
+    dL_dz = dL_dz.reshape(-1, 1)
+    dL_dW = dL_dz * dz_dW
+
+
     #########################################
     return dL_dW
 
@@ -349,6 +360,7 @@ def compute_dL_db(dL_dz,dz_db):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    dL_db = dL_dz * dz_db
 
     #########################################
     return dL_db 
@@ -372,6 +384,7 @@ def update_W(W, dL_dW, alpha=0.001):
     '''
     #########################################
     ## INSERT YOUR CODE HERE
+    W = W- alpha*dL_dW
 
     #########################################
     return W
@@ -394,6 +407,7 @@ def update_b(b, dL_db, alpha=0.001):
     
     #########################################
     ## INSERT YOUR CODE HERE
+    b = b - alpha * dL_db
 
     #########################################
     return b 
@@ -428,6 +442,17 @@ def train(X, Y, alpha=0.01, n_epoch=100):
             print('for loop')
             #########################################
             ## INSERT YOUR CODE HERE
+            z, a, L = forward(x,y,W,b)
+            dL_da, da_dz, dz_dW, dz_db = backward(x,y,a)
+            dL_dz = compute_dL_dz(dL_da, da_dz)
+            dL_dW = compute_dL_dW(dL_dz, dz_dW)
+            dL_db = compute_dL_db(dL_dz, dz_db)
+        
+            # update here with SGD since it says on each data instance
+            W = update_W(W, dL_dW, alpha)
+            
+            b = update_b(b, dL_db, alpha)
+
 
 
             #########################################
@@ -454,6 +479,7 @@ def predict(Xtest, W, b):
         print('for loop')
         #########################################
         ## INSERT YOUR CODE HERE
+        Y = np.dot()
 
         #########################################
     return Y, P 
